@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {
-    ".conf", ".csv", ".ct", ".inp", ".json", ".md", ".py", ".tex", ".txt", ".yaml", ".yml"
+    ".bib", ".conf", ".csv", ".ct", ".inp", ".json", ".md", ".py", ".tex", ".txt", ".yaml", ".yml"
 }
 
 

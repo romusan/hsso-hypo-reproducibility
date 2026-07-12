@@ -1,0 +1,5 @@
+Supplementary Table S1. Event-level quality-control audit for the 35 HSSO-E
+solutions that meet at least one predefined review criterion. The table reports
+the data set, event identifier, catalog and relocated coordinates, common-model
+RMS values, horizontal and vertical displacement, depth-boundary status, and
+the specific review reasons. Flagged solutions remain in all primary analyses.

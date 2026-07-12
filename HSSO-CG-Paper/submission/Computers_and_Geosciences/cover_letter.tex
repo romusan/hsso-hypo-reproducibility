@@ -1,0 +1,28 @@
+\documentclass[10pt]{letter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=2.2cm]{geometry}
+\signature{Claudia Patricia Parra Medina\\Corresponding author}
+\address{Grupo de Investigaci\'on GAV\\Universidad Militar Nueva Granada\\Carrera 11 No. 101--80\\Bogot\'a 110111, Colombia}
+\date{\today}
+
+\begin{document}
+\begin{letter}{Editors\\\textit{Computers \& Geosciences}}
+\opening{Dear Editors,}
+
+Please consider the manuscript entitled ``Energy-controlled helical swarm optimization for reproducible earthquake hypocenter relocation using fast-sweeping travel times and station statics'' for publication as an Original Research Article in \textit{Computers \& Geosciences}.
+
+The manuscript addresses the journal's interface between computational methods and geoscience through a reproducible framework for conditional hypocenter relocation in a three-dimensional regional velocity model. Its contribution is not a claim that a new metaheuristic is universally superior to particle swarm optimization. It is an auditable architecture connecting receiver-centred fast-sweeping travel times, analytical elimination of origin time, held-out station statics, bounded optimization, quality control, seed auditing, and versioned provenance.
+
+The same canonical implementation of four swarm variants is used in mathematical verification and seismic application. At a common 9,030-evaluation budget, the methods reach effectively the same terminal basin for most of 62 earthquakes. The relevant algorithmic distinction is early convergence: topological guidance needs substantially fewer evaluations to approach the common terminal objective. The manuscript reports this conservatively and does not interpret lower conditional RMS as proof of a more accurate absolute hypocenter.
+
+Validation includes 30 held-out events, synthetic source recovery, paired statistics and effect sizes, a 120-run seed audit, explicit relocation diagnostics, and a delimited NonLinLoc/HypoDD pilot. The public MIT-licensed repository provides shared code, selected inputs, raw outputs, checksums, executable examples, and automated release auditing.
+
+The manuscript has not been published previously and is not under consideration elsewhere. The author approved the submitted version and declares no competing interests. The repository and data archive are identified in the Code and data availability section.
+
+Thank you for considering this work.
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}

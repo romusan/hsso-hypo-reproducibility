@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -76,9 +77,51 @@ def main() -> None:
     require((ROOT / "HSSO-CG-Paper/paper/main.tex").is_file(), "missing manuscript source")
     require((ROOT / "HSSO-CG-Paper/paper/output/main.pdf").is_file(), "missing manuscript PDF")
 
+    submission = ROOT / "HSSO-CG-Paper/submission/Computers_and_Geosciences"
+    required_submission = (
+        "manuscript/main.tex",
+        "manuscript/main.pdf",
+        "manuscript/references.bib",
+        "cover_letter.tex",
+        "cover_letter.pdf",
+        "highlights.txt",
+        "data_statement.txt",
+        "figures/Figure_1.pdf",
+        "figures/Figure_2.pdf",
+        "figures/Figure_3.pdf",
+        "supplementary/Supplementary_Table_S1.csv",
+        "supplementary/Supplementary_Material_Captions.txt",
+        "README_SUBMISSION.md",
+        "SUBMISSION_CHECKLIST.md",
+    )
+    for relative in required_submission:
+        require((submission / relative).is_file(), f"missing submission file: {relative}")
+
+    highlights = [line for line in (submission / "highlights.txt").read_text(
+        encoding="utf-8").splitlines() if line.strip()]
+    require(3 <= len(highlights) <= 5, "submission must contain three to five highlights")
+    require(all(len(line) <= 85 for line in highlights),
+            "every highlight must contain at most 85 characters")
+
+    submission_tex = (submission / "manuscript/main.tex").read_text(encoding="utf-8")
+    abstract_match = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}",
+                               submission_tex, flags=re.DOTALL)
+    require(abstract_match is not None, "submission manuscript must contain an abstract")
+    abstract_text = re.sub(r"\\[A-Za-z]+(?:\[[^]]*\])?\{([^}]*)\}", r"\1",
+                           abstract_match.group(1))
+    abstract_text = re.sub(r"\$[^$]*\$", " value ", abstract_text)
+    abstract_words = re.findall(r"\b[\w'-]+\b", abstract_text)
+    require(len(abstract_words) <= 300, "abstract must contain at most 300 words")
+    require("\\doublespacing" in submission_tex and "\\linenumbers" in submission_tex,
+            "submission manuscript must be double spaced with line numbers")
+    require("authoryear" in submission_tex and "\\bibliographystyle{plainnat}" in submission_tex,
+            "submission manuscript must use author-year references")
+
     subprocess.run([sys.executable, str(ROOT / "tools/verify_manifest.py")], check=True)
     print("release content audit: PASS")
     print("paired comparisons: 6; QC events: 35; seed runs: 120; ph2dt rows: 520")
+    print(f"submission audit: {len(abstract_words)} abstract words; "
+          f"{len(highlights)} highlights; 3 vector figures")
 
 
 if __name__ == "__main__":

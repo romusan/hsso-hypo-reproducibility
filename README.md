@@ -21,6 +21,9 @@ outperforms PSO.
   fields, and authoritative seismic outputs.
 - `HSSO-CG-Paper/`: analysis scripts, compact synthetic recovery, tests,
   manuscript source, figures, animation, and final PDF.
+- `HSSO-CG-Paper/submission/Computers_and_Geosciences/`: journal-ready source,
+  review PDF, highlights, cover letter, separate figures, data statement, and
+  cited supplementary material.
 - `external_pilot/`: compact NonLinLoc/ph2dt/HypoDD configurations and summary
   outputs, including the 520-row `dt.ct`, archived as a sensitivity diagnostic
   rather than a ranked benchmark.

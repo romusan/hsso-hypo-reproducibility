@@ -44,7 +44,7 @@ The central contribution is a transparent and auditable relocation architecture 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{hsso_hypo_workflow.pdf}
+\includegraphics[width=\linewidth]{Figure_1.pdf}
 \caption{HSSO-Hypo computational workflow. Receiver-centred FSM fields are cached once and shared by all optimizers. A single residual definition analytically eliminates origin time, and every terminal solution passes through the same displacement and boundary checks. The reproducibility layer records the implementation, seeds, budgets, field provenance, event-level outputs, environment, and audit tables.}
 \label{fig:workflow}
 \end{figure}
@@ -168,7 +168,7 @@ Figure~\ref{fig:validation}a reports success counts for the four benchmark funct
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{algorithm_and_seismic_validation.pdf}
+\includegraphics[width=\linewidth]{Figure_2.pdf}
 \caption{(a) Mathematical verification with 30 paired seeds and 9,030 evaluations per run. (b) Event-wise P-pick RMS for the four shared-core optimizers across 62 earthquakes. Boxes show medians and interquartile ranges; whiskers follow the standard 1.5-IQR convention and plotted outliers are suppressed for legibility but retained in all tables and tests.}
 \label{fig:validation}
 \end{figure}
@@ -247,7 +247,7 @@ Figure~\ref{fig:qc} separates residual reduction from displacement diagnostics f
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{hsso_e_relocation_qc.pdf}
+\includegraphics[width=\linewidth]{Figure_3.pdf}
 \caption{HSSO-E seismic validation. Left: RMS at the catalog hypocenter and after relocation, evaluated with identical data and forward model. Right: horizontal and vertical displacements; red indicates a depth-boundary solution and the dashed line is the $d_H=25$~km review threshold.}
 \label{fig:qc}
 \end{figure}

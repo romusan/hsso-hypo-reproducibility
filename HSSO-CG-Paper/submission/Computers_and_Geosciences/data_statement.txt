@@ -1,0 +1,6 @@
+The code, selected research inputs, derived data, raw optimizer outputs, and
+reproducibility metadata are publicly available at
+https://github.com/romusan/hsso-hypo-reproducibility under the terms stated in
+the repository. SGC-derived inputs retain their original source terms. A
+DOI-backed archival release must be inserted here and cited in the manuscript
+before the submission is finalized.

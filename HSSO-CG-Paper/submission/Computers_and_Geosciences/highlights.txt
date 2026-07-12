@@ -1,0 +1,5 @@
+- A reproducible FSM-swarm framework relocates 62 Colombian earthquakes.
+- Shared code links mathematical verification and seismic relocation.
+- Topological guidance reaches a common terminal basin with fewer evaluations.
+- A 120-run seed audit separates numerical from geophysical uncertainty.
+- Explicit QC prevents lower RMS from being treated as location truth.
