@@ -13,10 +13,13 @@
 \graphicspath{{../figures/}}
 \newcommand{\method}{HSSO-E}
 \title{Energy-controlled helical swarm optimization for reproducible earthquake hypocenter relocation using fast-sweeping travel times and station statics}
-\author{Claudia Patricia Parra Medina\\
-\small Grupo de Investigaci\'on GAV, Universidad Militar Nueva Granada\\
+\author{R\'omulo Sandoval Fl\'orez$^{1,*}$ and Claudia Patricia Parra Medina$^{2}$\\[0.4em]
+\small $^{1}$Grupo de Investigaci\'on GIDMyM, Universidad ECCI,\\
+\small Carrera 19 No. 49--20, Bogot\'a 111311, Colombia\\
+\small $^{2}$Grupo de Investigaci\'on GAV, Universidad Militar Nueva Granada,\\
 \small Carrera 11 No. 101--80, Bogot\'a 110111, Colombia\\
-\small ORCID: 0000-0003-2115-4167}
+\small ORCID: R.S.F. 0000-0003-4157-6842; C.P.P.M. 0000-0003-2115-4167\\
+\small $^{*}$Corresponding author: \texttt{romulo@ecci.edu.co}}
 \date{}
 
 \begin{document}
@@ -329,19 +332,19 @@ The framework's most important scientific output is not the smallest RMS in isol
 The release package contains the canonical optimizer module, FSM relocation and analysis scripts, environment specification, selected SGC event metadata and picks subject to source terms, station-static table, velocity grid, cached receiver fields, configuration files, raw results, checksum manifest, and minimal examples. It also archives all 120 repeated-seed rows and their configuration, the six paired-test rows with raw and Holm-adjusted $p$ values and rank-biserial effects, the 35-event QC supplement, and the NonLinLoc/HypoDD pilot configurations and summary outputs. A dependency-light audit verifies these claimed contents and their SHA-256 checksums. Software is licensed under the OSI-approved MIT licence; SGC-derived inputs retain their source terms. The versioned public repository is available at \url{https://github.com/romusan/hsso-hypo-reproducibility}; a permanent archive identifier will be added before submission. The authoritative earthquake metadata source is the Servicio Geol\'ogico Colombiano catalog \citep{SGCCatalog}.
 
 \section*{CRediT authorship contribution statement}
-Claudia Patricia Parra Medina: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Visualization, Writing--original draft, Writing--review and editing.
+R\'omulo Sandoval Fl\'orez: Conceptualization, Methodology, Software, Formal analysis, Investigation, Visualization, Writing--original draft, Writing--review and editing. Claudia Patricia Parra Medina: Conceptualization, Methodology, Validation, Investigation, Resources, Supervision, Writing--review and editing.
 
 \section*{Funding}
 This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 \section*{Declaration of competing interest}
-The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+The authors declare no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work, the author used OpenAI Codex to support language editing, code review, and reproducibility checks. The author reviewed and verified the resulting text, code, calculations, references, and repository artifacts and takes full responsibility for the content of the article.
+During the preparation of this work, the authors used OpenAI Codex to support language editing, code review, and reproducibility checks. The authors reviewed and verified the resulting text, code, calculations, references, and repository artifacts and take full responsibility for the content of the article.
 
 \section*{Acknowledgements}
-The author acknowledges the Servicio Geol\'ogico Colombiano for earthquake catalog and phase information used in this study.
+The authors acknowledge the Servicio Geol\'ogico Colombiano for earthquake catalog and phase information used in this study.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

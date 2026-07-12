@@ -21,7 +21,9 @@ The check requires and verifies:
 - the Computers & Geosciences submission package, including a double-spaced
   line-numbered manuscript, author-year references, a sub-300-word abstract,
   five compliant highlights, cover letter, three vector figures, data statement,
-  and cited supplementary table; and
+  and cited supplementary table; the audit also fixes author order as Rómulo
+  Sandoval Flórez followed by Claudia Patricia Parra Medina and verifies the
+  corresponding-author email and companion-manuscript name consistency; and
 - every SHA-256 entry in `MANIFEST.sha256`.
 
 The external-method pilot is archived as a sensitivity diagnostic. It is not a

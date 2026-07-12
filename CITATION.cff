@@ -3,8 +3,14 @@ message: "If you use this software, please cite the accompanying manuscript."
 title: "HSSO-Hypo reproducibility compendium"
 type: software
 authors:
-  - family-names: Parra
-    given-names: Claudia
+  - family-names: Sandoval Flórez
+    given-names: Rómulo
+    orcid: "https://orcid.org/0000-0003-4157-6842"
+    affiliation: "Universidad ECCI"
+  - family-names: Parra Medina
+    given-names: Claudia Patricia
+    orcid: "https://orcid.org/0000-0003-2115-4167"
+    affiliation: "Universidad Militar Nueva Granada"
 version: 1.0.0
 date-released: 2026-07-12
 license: MIT

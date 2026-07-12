@@ -17,12 +17,12 @@ quality-control supplement.
 
 ## Required author actions before upload
 
-1. Add and verify the corresponding-author email on the manuscript first page,
-   cover letter, and Editorial Manager record.
+1. Verify the corresponding-author email in the manuscript, cover letter, and
+   Editorial Manager record (`romulo@ecci.edu.co`).
 2. Create a DOI-backed archival release and replace the provisional archive
    wording in `main.tex` and `data_statement.txt`.
 3. Generate the competing-interest `.docx` with Elsevier's declarations tool.
 4. Confirm that the manuscript is not under consideration elsewhere and that
-   the final authorship, affiliation, ORCID, funding, and AI disclosure are
-   accurate.
+   the final author order, affiliations, ORCIDs, CRediT roles, funding, and AI
+   disclosure are accurate.
 5. Enter any requested reviewer suggestions directly in Editorial Manager.

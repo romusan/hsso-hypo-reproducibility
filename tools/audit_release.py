@@ -116,6 +116,25 @@ def main() -> None:
             "submission manuscript must be double spaced with line numbers")
     require("authoryear" in submission_tex and "\\bibliographystyle{plainnat}" in submission_tex,
             "submission manuscript must use author-year references")
+    first_author = "R\\'omulo Sandoval Fl\\'orez"
+    second_author = "Claudia Patricia Parra Medina"
+    require(first_author in submission_tex and second_author in submission_tex,
+            "submission manuscript must contain both verified author names")
+    require(submission_tex.index(first_author) < submission_tex.index(second_author),
+            "Rómulo Sandoval Flórez must be listed before Claudia Patricia Parra Medina")
+    require("romulo@ecci.edu.co" in submission_tex,
+            "submission manuscript must identify the corresponding-author email")
+    submission_bib = (submission / "manuscript/references.bib").read_text(encoding="utf-8")
+    require("author={Parra Medina, Claudia Patricia}" in submission_bib,
+            "companion-manuscript author name must match the submission author name")
+    cover_tex = (submission / "cover_letter.tex").read_text(encoding="utf-8")
+    require(first_author in cover_tex and "romulo@ecci.edu.co" in cover_tex,
+            "cover letter must be signed by the corresponding author")
+    citation_cff = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+    require("Sandoval Flórez" in citation_cff and "Parra Medina" in citation_cff,
+            "CITATION.cff must contain both manuscript authors")
+    require(citation_cff.index("Sandoval Flórez") < citation_cff.index("Parra Medina"),
+            "CITATION.cff author order must match the manuscript")
 
     subprocess.run([sys.executable, str(ROOT / "tools/verify_manifest.py")], check=True)
     print("release content audit: PASS")
