@@ -62,15 +62,23 @@ def main() -> None:
         "results/cluster_convergence.csv",
         "results/relocation_summary.csv",
         "results/input_audit.txt",
+        "results/dt.ct",
     ):
         require((pilot / relative).is_file(), f"missing external pilot file: {relative}")
+
+    dt_lines = (pilot / "results/dt.ct").read_text(encoding="utf-8").splitlines()
+    dt_headers = [line for line in dt_lines if line.lstrip().startswith("#")]
+    dt_rows = [line for line in dt_lines if line.strip() and not line.lstrip().startswith("#")]
+    require(len(dt_lines) == 602, "dt.ct must contain 602 total lines")
+    require(len(dt_headers) == 82, "dt.ct must contain 82 event-pair blocks")
+    require(len(dt_rows) == 520, "dt.ct must contain 520 selected P differential times")
 
     require((ROOT / "HSSO-CG-Paper/paper/main.tex").is_file(), "missing manuscript source")
     require((ROOT / "HSSO-CG-Paper/paper/output/main.pdf").is_file(), "missing manuscript PDF")
 
     subprocess.run([sys.executable, str(ROOT / "tools/verify_manifest.py")], check=True)
     print("release content audit: PASS")
-    print("paired comparisons: 6; QC events: 35; seed runs: 120; pilot: archived")
+    print("paired comparisons: 6; QC events: 35; seed runs: 120; ph2dt rows: 520")
 
 
 if __name__ == "__main__":

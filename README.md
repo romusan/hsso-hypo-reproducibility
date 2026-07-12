@@ -22,7 +22,8 @@ outperforms PSO.
 - `HSSO-CG-Paper/`: analysis scripts, compact synthetic recovery, tests,
   manuscript source, figures, animation, and final PDF.
 - `external_pilot/`: compact NonLinLoc/ph2dt/HypoDD configurations and summary
-  outputs, archived as a sensitivity diagnostic rather than a ranked benchmark.
+  outputs, including the 520-row `dt.ct`, archived as a sensitivity diagnostic
+  rather than a ranked benchmark.
 - `tomografia_Q/.../models/`: fixed 3-D velocity grid used by the reported
   conditional relocation experiments.
 - `MANIFEST.sha256`: checksums for canonical code, principal inputs, reported

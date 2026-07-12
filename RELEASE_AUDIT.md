@@ -14,7 +14,9 @@ The check requires and verifies:
 - 35 unique HSSO-E quality-control events (15 stratified and 20 held out);
 - 120 raw repeated-seed runs covering 12 pre-flagged events with 10 seeds each,
   their configuration, event summaries, and pooled summary;
-- the compact NonLinLoc/ph2dt/HypoDD pilot configurations and summary outputs;
+- the compact NonLinLoc/ph2dt/HypoDD pilot configurations and summary outputs,
+  including `dt.ct` with 520 selected P differential-time rows in 82 event-pair
+  blocks (602 total lines);
 - manuscript LaTeX source and compiled PDF; and
 - every SHA-256 entry in `MANIFEST.sha256`.
 
