@@ -1,0 +1,14 @@
+{
+  "particles": 30,
+  "iterations": 300,
+  "depth_window_km": 20.0,
+  "pick_noise_s": 0.05,
+  "receiver_delay_s": 0.1,
+  "seed": 20260712,
+  "heldout_statics_csv": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\HSSO-Hypo-Reproducibility\\HSSO-Hypo\\data\\sgc_new_30\\heldout_station_statics.csv",
+  "output_prefix": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\HSSO-Hypo-Reproducibility\\HSSO-CG-Paper\\results\\synthetic_recovery",
+  "cases": 6,
+  "selection": "three depth-quantile geometries from each seismic data set",
+  "forward_inverse_model": "same fixed 3-D Vp grid and cached receiver-centred FSM fields",
+  "interpretation": "conditional algorithmic recovery; not independent velocity-model validation"
+}

@@ -1,0 +1,9 @@
+dataset,method,median_iteration,mean_iteration
+new30,HSSO-E,25.5,31.466666666666665
+new30,HSSO-no-helix,19.5,23.066666666666666
+new30,LPSO,77.5,81.03333333333333
+new30,PSO,72.5,74.03333333333333
+stratified32,HSSO-E,23.5,27.3125
+stratified32,HSSO-no-helix,18.5,18.25
+stratified32,LPSO,78.5,74.3125
+stratified32,PSO,65.5,59.90625

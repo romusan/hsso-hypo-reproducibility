@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript."
+title: "HSSO-Hypo reproducibility compendium"
+type: software
+authors:
+  - family-names: Parra
+    given-names: Claudia
+version: 1.0.0
+date-released: 2026-07-12
+license: MIT
+repository-code: "https://github.com/romusan/hsso-hypo-reproducibility"
+abstract: >-
+  Reproducible earthquake hypocenter relocation using receiver-centred
+  fast-sweeping travel-time fields, held-out station statics, bounded swarm
+  optimization, early-convergence diagnostics, and explicit quality control.

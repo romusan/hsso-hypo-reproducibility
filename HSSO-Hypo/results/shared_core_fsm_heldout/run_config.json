@@ -1,0 +1,21 @@
+{
+  "dataset": "all",
+  "particles": 30,
+  "iterations": 300,
+  "depth_window_km": 20.0,
+  "fsm_sweeps": 8,
+  "seed": 20260710,
+  "max_events": 0,
+  "heldout_statics_csv": "HSSO-Hypo/data/sgc_new_30/heldout_station_statics.csv",
+  "output": "HSSO-Hypo/results/shared_core_fsm_heldout",
+  "methods": [
+    "PSO",
+    "LPSO",
+    "HSSO-no-helix",
+    "HSSO-E"
+  ],
+  "optimizer_module": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\HSSO-Core\\src\\swarm_core.py",
+  "local_polish": false,
+  "station_statics_new30": true,
+  "station_statics_stratified32": false
+}
