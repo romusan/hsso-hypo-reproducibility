@@ -1,0 +1,112 @@
+{
+  "run_name": "Final SGC grid-eikonal Vp and response-corrected spectral-ratio Q pilot tomography with Bucaramanga nest and expanded stations",
+  "input_picks": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_tomography\\data\\sgc_1000_vp_picks.csv",
+  "input_pairs": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_tomography\\data\\sgc_1000_spectral_tstar_pairs.csv",
+  "instrument_response_removed_for_q": true,
+  "instrument_response_output": "VEL",
+  "stations_used": 14,
+  "station_list": [
+    "BAR2",
+    "BRJC",
+    "CPAM3",
+    "CPAMP",
+    "PAM",
+    "PDSC",
+    "PTB",
+    "PTB1",
+    "VMM05",
+    "VMM07",
+    "VMM09",
+    "VMM10",
+    "VMM11",
+    "VMM12"
+  ],
+  "trace_spectra": 4083,
+  "q_pairs_input": 4221,
+  "domain": {
+    "lon_min": -74.6,
+    "lon_max": -72.55,
+    "lat_min": 6.2,
+    "lat_max": 8.05,
+    "max_model_depth_km": 180.0,
+    "rectangular": true
+  },
+  "vp": {
+    "method": "26-neighbor 3-D grid-eikonal minimum-time rays with iterative LSMR slowness updates",
+    "observations": 4269,
+    "events": 913,
+    "active_cells": 476,
+    "data_parameter_ratio_cells_only": 8.968487394957982,
+    "initial_rms_s": 1.4376267895608486,
+    "final_rms_s": 0.8983920660274884,
+    "rms_reduction_percent": 37.508672448854405,
+    "min_hit_threshold": 20,
+    "regularization": {
+      "alpha": 0.25,
+      "damp": 0.25,
+      "laplace": 3.0
+    },
+    "initial_fsm_row_failures": 0,
+    "initial_fsm_build_seconds": 3.4865798950195312
+  },
+  "q_pilot": {
+    "pair_observations_qc_input": 4216,
+    "observations_used": 4048,
+    "active_cells": 822,
+    "station_terms": 14,
+    "data_parameter_ratio_cells_plus_stations": 4.842105263157895,
+    "initial_rms_s": 0.11278180822018823,
+    "station_only_rms_s": 0.1720141450627412,
+    "final_rms_s": 0.062253751008875036,
+    "station_only_rms_reduction_percent": -52.51940696580377,
+    "rms_reduction_percent": 44.8016023228368,
+    "median_r2": 0.13199224023603814,
+    "r2_ge_0p4_observations": 810,
+    "r2_ge_0p4_events": 406,
+    "r2_ge_0p4_station_pairs": 68,
+    "r2_ge_0p4_median_r2": 0.5860436790047386,
+    "max_abs_station_term_s": 0.21320743502235442,
+    "min_hit_threshold": 10,
+    "fsm_ray_failures": 168,
+    "lsmr_iterations": 518,
+    "lsmr_istop": 2
+  },
+  "vp_checkerboard": {
+    "type": "linearized grid-eikonal checkerboard on final ray geometry",
+    "active_cells": 476,
+    "observations": 4265,
+    "noise_std_s": 0.03,
+    "slowness_fraction_amplitude": 0.04,
+    "correlation": 0.4868818718930648,
+    "rmse_slowness": 0.005076748609815947,
+    "lsmr_iterations": 436,
+    "lsmr_istop": 2
+  },
+  "benioff": {
+    "control_events": 1500,
+    "rmse_km": 7.369732288937143,
+    "mae_km": 5.45671713260582,
+    "surface_nodes": 4088,
+    "surface_nodes_vp_active": 171,
+    "surface_nodes_q_active": 313,
+    "surface_method": "convex-hull k-nearest-neighbor Gaussian smoothing",
+    "smoothing_radius_km": 30.0,
+    "k_nearest": 24,
+    "depth_min_km": 60.0,
+    "depth_max_km": 170.0
+  },
+  "figures": {
+    "area": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_area_events_black_stations_red.png",
+    "vp": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_vp_slices.png",
+    "vp_history": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_vp_convergence.png",
+    "checkerboard": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_vp_checkerboard.png",
+    "q": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_q_pilot.png",
+    "benioff3d": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\tomografia_Q\\output_V2\\sgc_final_q_extra_station_fsm_tomography\\figures\\sgc_final_fsm_nazca_benioff_3d_surface.png"
+  },
+  "limitations": [
+    "Vp uses fixed SGC hypocenters; no joint hypocenter-velocity relocation is performed.",
+    "The initial Vp model includes a Nazca slab-informed prior; anomalies are perturbations relative to that prior.",
+    "Q spectra are response-corrected, but low spectral-fit R2 still makes the volumetric Q field pilot-level.",
+    "The checkerboard is a linearized diagnostic on final grid-eikonal ray geometry, not a full nonlinear synthetic reinversion."
+  ]
+}

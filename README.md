@@ -1,5 +1,7 @@
 # HSSO-Hypo research compendium
 
+[![Reproducibility smoke test](https://github.com/romusan/hsso-hypo-reproducibility/actions/workflows/smoke.yml/badge.svg)](https://github.com/romusan/hsso-hypo-reproducibility/actions/workflows/smoke.yml)
+
 Public repository: https://github.com/romusan/hsso-hypo-reproducibility
 
 This folder contains the manuscript, mathematical verification, seismic
@@ -39,10 +41,10 @@ The checks should finish in seconds and report fitness below `1e-6` for PSO
 and HSSO-E, `shared-core invariants: PASS`, and `manifest verification: PASS`.
 
 The canonical algorithms are implemented once in
-`../HSSO-Core/src/swarm_core.py`. Both experiment drivers import that file:
+`HSSO-Core/src/swarm_core.py`. Both experiment drivers import that file:
 
-- `src/run_mathematical_validation.py`
-- `../HSSO-Hypo/src/run_shared_optimizer_comparison.py`
+- `HSSO-CG-Paper/src/run_mathematical_validation.py`
+- `HSSO-Hypo/src/run_shared_optimizer_comparison.py`
 
 No local polishing, gradient descent, adaptive initialization, or restart is
 used in the reported comparisons.
@@ -91,14 +93,14 @@ hypocenters.
 
 ## Data provenance
 
-- 32 events: `../HSSO-Hypo/data/selected_*`
-- 30 previously unused events: `../HSSO-Hypo/data/sgc_new_30/`
-- velocity grid: `../tomografia_Q/output_V2/sgc_final_q_extra_station_fsm_tomography/models/`
-- velocity-model metrics: `../tomografia_Q/output_V2/sgc_final_q_extra_station_fsm_tomography/sgc_final_fsm_tomography_metrics.json`
+- 32 events: `HSSO-Hypo/data/selected_*`
+- 30 previously unused events: `HSSO-Hypo/data/sgc_new_30/`
+- velocity grid: `tomografia_Q/output_V2/sgc_final_q_extra_station_fsm_tomography/models/`
+- velocity-model metrics: `tomografia_Q/output_V2/sgc_final_q_extra_station_fsm_tomography/sgc_final_fsm_tomography_metrics.json`
 
-Before public release, confirm redistribution terms for SGC-derived picks and
-replace large or restricted inputs with download scripts and checksums where
-required.
+SGC-derived event and pick tables are included solely to audit the reported
+calculations. Users must retain the SGC attribution and consult the terms of
+the authoritative catalogue before redistributing those data.
 
 ## Licence
 
