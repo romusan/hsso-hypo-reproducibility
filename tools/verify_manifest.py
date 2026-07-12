@@ -7,6 +7,15 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".tex", ".yaml", ".yml"}
+
+
+def canonical_bytes(path: Path) -> bytes:
+    """Return platform-independent bytes for checksum comparison."""
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        data = data.replace(b"\r\n", b"\n")
+    return data
 
 
 def main() -> None:
@@ -14,7 +23,7 @@ def main() -> None:
     for line in (ROOT / "MANIFEST.sha256").read_text(encoding="utf-8").splitlines():
         expected, relative = line.split(maxsplit=1)
         path = ROOT / relative
-        observed = hashlib.sha256(path.read_bytes()).hexdigest()
+        observed = hashlib.sha256(canonical_bytes(path)).hexdigest()
         status = "OK" if observed == expected else "FAIL"
         print(f"{status}  {relative}")
         if status == "FAIL":
