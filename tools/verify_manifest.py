@@ -7,7 +7,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".tex", ".yaml", ".yml"}
+TEXT_SUFFIXES = {
+    ".conf", ".csv", ".inp", ".json", ".md", ".py", ".tex", ".txt", ".yaml", ".yml"
+}
 
 
 def canonical_bytes(path: Path) -> bytes:
