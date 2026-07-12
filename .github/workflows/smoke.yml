@@ -25,3 +25,5 @@ jobs:
         run: python HSSO-CG-Paper/tests/test_shared_core.py
       - name: Verify canonical-file checksums
         run: python tools/verify_manifest.py
+      - name: Audit manuscript-facing release contents
+        run: python tools/audit_release.py

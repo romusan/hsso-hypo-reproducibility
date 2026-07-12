@@ -21,9 +21,13 @@ outperforms PSO.
   fields, and authoritative seismic outputs.
 - `HSSO-CG-Paper/`: analysis scripts, compact synthetic recovery, tests,
   manuscript source, figures, animation, and final PDF.
+- `external_pilot/`: compact NonLinLoc/ph2dt/HypoDD configurations and summary
+  outputs, archived as a sensitivity diagnostic rather than a ranked benchmark.
 - `tomografia_Q/.../models/`: fixed 3-D velocity grid used by the reported
   conditional relocation experiments.
-- `MANIFEST.sha256`: checksums for the canonical code and principal inputs.
+- `MANIFEST.sha256`: checksums for canonical code, principal inputs, reported
+  tables, manuscript artifacts, and external-pilot evidence.
+- `RELEASE_AUDIT.md`: mapping between manuscript claims and public artifacts.
 
 ## Quick start
 
@@ -35,10 +39,12 @@ conda activate hsso-hypo
 python .\HSSO-CG-Paper\examples\minimal_swarm.py
 python .\HSSO-CG-Paper\tests\test_shared_core.py
 python .\tools\verify_manifest.py
+python .\tools\audit_release.py
 ```
 
 The checks should finish in seconds and report fitness below `1e-6` for PSO
-and HSSO-E, `shared-core invariants: PASS`, and `manifest verification: PASS`.
+and HSSO-E, `shared-core invariants: PASS`, `manifest verification: PASS`, and
+`release content audit: PASS`.
 
 The canonical algorithms are implemented once in
 `HSSO-Core/src/swarm_core.py`. Both experiment drivers import that file:
@@ -59,6 +65,7 @@ python .\HSSO-Hypo\src\run_shared_optimizer_comparison.py --dataset all --partic
 python .\HSSO-CG-Paper\src\run_early_stopping_analysis.py --full-results .\HSSO-Hypo\results\shared_core_fsm_heldout\relocation_comparison.csv --heldout-statics-csv .\HSSO-Hypo\data\sgc_new_30\heldout_station_statics.csv --output-prefix early_stopping_heldout
 python .\HSSO-CG-Paper\src\run_huber_sensitivity.py --full-results .\HSSO-Hypo\results\shared_core_fsm_heldout\relocation_comparison.csv --heldout-statics-csv .\HSSO-Hypo\data\sgc_new_30\heldout_station_statics.csv --output-prefix huber_sensitivity_heldout
 python .\HSSO-CG-Paper\src\run_synthetic_recovery.py
+python .\HSSO-CG-Paper\src\run_seed_sensitivity.py
 python .\HSSO-CG-Paper\src\analyze_results.py --seismic-results .\HSSO-Hypo\results\shared_core_fsm_heldout\relocation_comparison.csv
 python .\HSSO-CG-Paper\src\make_workflow_figure.py
 python .\HSSO-CG-Paper\src\make_relocation_animation.py
@@ -85,6 +92,13 @@ The six-case synthetic recovery output is stored under
 fields, 0.05-s pick noise, and unmodelled 0.10-s receiver delays. Because the
 forward and inverse velocity grids are identical, it is an algorithmic recovery
 check rather than independent validation of the regional model.
+
+The repeated-seed audit is stored under
+`results/seed_sensitivity_flagged12_*`: 12 pre-flagged events, 10 seeds per
+event, 120 raw runs. The paired-test table includes raw and Holm-adjusted p
+values plus matched-pairs rank-biserial effects. Run `tools/audit_release.py`
+to verify these counts, the 35-event QC supplement, the external pilot, the
+manuscript artifacts, and the checksum manifest in one command.
 
 The supplementary animation compares PSO and HSSO-E for SGC2025yxrhgz using
 the reported FSM objective, common seed, and canonical optimizer. Yellow points

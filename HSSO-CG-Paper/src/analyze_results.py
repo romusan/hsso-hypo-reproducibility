@@ -6,7 +6,7 @@ import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.stats import wilcoxon
+from scipy.stats import rankdata, wilcoxon
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "HSSO-CG-Paper" / "results"
@@ -19,6 +19,34 @@ def holm(p):
     for rank, idx in enumerate(order):
         running = max(running, (len(p) - rank) * p[idx]); adjusted[idx] = min(1.0, running)
     return adjusted
+
+
+def matched_rank_biserial(diff):
+    """Matched-pairs rank-biserial effect; negative values favour HSSO-E."""
+    values = np.asarray(diff, float)
+    values = values[np.isfinite(values) & (values != 0.0)]
+    if len(values) == 0:
+        return 0.0
+    ranks = rankdata(np.abs(values), method="average")
+    positive = ranks[values > 0].sum()
+    negative = ranks[values < 0].sum()
+    return float((positive - negative) / (positive + negative))
+
+
+def paired_tests(seismic):
+    tests = []
+    for dataset in seismic.dataset.unique():
+        pivot = seismic[seismic.dataset == dataset].pivot(index="event_id", columns="method", values="relocated_rms_s")
+        for other in ["PSO", "LPSO", "HSSO-no-helix"]:
+            diff = pivot["HSSO-E"] - pivot[other]
+            w, p = wilcoxon(pivot["HSSO-E"], pivot[other], alternative="two-sided", zero_method="zsplit")
+            tests.append({"dataset": dataset, "comparison": f"HSSO-E vs {other}", "n": len(diff),
+                          "W": w, "p_raw": p, "hsso_e_lower_rms": int((diff < 0).sum()),
+                          "ties": int((diff == 0).sum()), "other_lower_rms": int((diff > 0).sum()),
+                          "median_paired_difference_s": np.median(diff),
+                          "rank_biserial_hsso_minus_other": matched_rank_biserial(diff)})
+    tests = pd.DataFrame(tests); tests["p_holm"] = holm(tests.p_raw)
+    return tests
 
 
 def arguments():
@@ -66,17 +94,7 @@ def main():
     event_spread["within_100m"] = ((event_spread.horizontal_range_km <= .1) &
                                     (event_spread.depth_range_km <= .1))
     event_spread.to_csv(OUT / "eventwise_optimizer_equivalence_audit.csv", index=False)
-    tests = []
-    for dataset in seismic.dataset.unique():
-        pivot = seismic[seismic.dataset == dataset].pivot(index="event_id", columns="method", values="relocated_rms_s")
-        for other in ["PSO", "LPSO", "HSSO-no-helix"]:
-            diff = pivot["HSSO-E"] - pivot[other]
-            w, p = wilcoxon(pivot["HSSO-E"], pivot[other], alternative="two-sided", zero_method="zsplit")
-            tests.append({"dataset": dataset, "comparison": f"HSSO-E vs {other}", "n": len(diff),
-                          "W": w, "p_raw": p, "hsso_e_lower_rms": int((diff < 0).sum()),
-                          "ties": int((diff == 0).sum()), "other_lower_rms": int((diff > 0).sum()),
-                          "median_paired_difference_s": np.median(diff)})
-    tests = pd.DataFrame(tests); tests["p_holm"] = holm(tests.p_raw)
+    tests = paired_tests(seismic)
     tests.to_csv(OUT / "seismic_paired_tests.csv", index=False)
     history = pd.read_csv(Path(args.seismic_results).with_name("convergence_history.csv"))
     final_best = history.groupby(["dataset", "event_id", "method"]).best_objective.transform("min")

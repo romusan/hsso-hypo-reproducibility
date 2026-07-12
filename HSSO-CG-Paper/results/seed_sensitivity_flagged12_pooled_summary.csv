@@ -1,0 +1,2 @@
+events,seeds_per_event,additional_seeds,median_rms_sd_s,max_rms_sd_s,median_rms_range_s,max_rms_range_s,median_horizontal_sd_km,max_horizontal_sd_km,median_horizontal_range_km,max_horizontal_range_km,median_depth_shift_sd_km,max_depth_shift_sd_km,median_depth_shift_range_km,max_depth_shift_range_km,events_with_mixed_boundary_status
+12,10,9,3.606803701140519e-15,4.8918756686283436e-08,1.0227929614359255e-14,1.6212148845617946e-07,9.441429954336089e-07,0.000842275290116715,2.9436982699193592e-06,0.002456063316669699,0.0,1.442410979802477e-08,0.0,4.589225000017905e-08,0

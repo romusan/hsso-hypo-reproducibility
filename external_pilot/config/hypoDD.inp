@@ -1,0 +1,30 @@
+* cross-correlation differential times
+dt.cc
+* catalog differential times
+dt.ct
+* initial events from NonLinLoc
+event.dat
+* stations
+input/station.dat
+* output files
+results/hypoDD.loc
+results/hypoDD.reloc
+results/hypoDD.sta
+results/hypoDD.res
+results/hypoDD.src
+* IDATA IPHASE MAXDIST
+2 1 500.0
+* MINOBS_CC MINOBS_CT
+0 4
+* ISTART ISOLV NSET
+2 2 1
+* NITER WTCCP WTCCS WRCC WDCC WTCTP WTCTS WRCT WDCT DAMP
+4 0.0 0.0 -9.0 -9.0 1.0 0.0 2.0 30.0 20.0
+* NLAY RATIO
+5 1.78
+* TOP
+0.0 10.0 20.0 40.0 100.0
+* VP
+5.31 6.48 7.22 8.03 8.28
+* CLUSTER
+0

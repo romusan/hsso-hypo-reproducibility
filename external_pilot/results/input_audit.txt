@@ -1,0 +1,5 @@
+events=62
+picks=509
+stations=15
+pick_sigma_s=0.1
+vpvs=1.78

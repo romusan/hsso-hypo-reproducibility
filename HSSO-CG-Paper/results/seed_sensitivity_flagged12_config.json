@@ -1,0 +1,66 @@
+{
+  "events_per_dataset": 6,
+  "additional_seeds": 9,
+  "base_seed": 20260710,
+  "heldout_statics_csv": "C:\\Users\\claudia.parra\\Documents\\Materias_romulo\\investigacion\\HSSO-Hypo\\data\\sgc_new_30\\heldout_station_statics.csv",
+  "output_prefix": "seed_sensitivity_flagged12",
+  "selection": "six largest normalized QC excursions per data set among the 35 pre-flagged HSSO-E events",
+  "selected_events": [
+    {
+      "dataset": "new30",
+      "event_id": "SGC2023vzpirs"
+    },
+    {
+      "dataset": "new30",
+      "event_id": "SGC2025yxrhgz"
+    },
+    {
+      "dataset": "new30",
+      "event_id": "SGC2025yshmnq"
+    },
+    {
+      "dataset": "new30",
+      "event_id": "SGC2024lyrntx"
+    },
+    {
+      "dataset": "new30",
+      "event_id": "SGC2026arcexx"
+    },
+    {
+      "dataset": "new30",
+      "event_id": "SGC2025ycdafx"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2020dtzpwj"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2020gerodj"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2019wbnvco"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2022pdaiuz"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2019pxebo"
+    },
+    {
+      "dataset": "stratified32",
+      "event_id": "SGC2019pdbii"
+    }
+  ],
+  "reported_seed_offset": 0,
+  "seed_stride": 1000003,
+  "optimizer": "HSSO-E",
+  "particles": 30,
+  "iterations": 300,
+  "evaluations": 9030,
+  "huber_delta_s": 1.0,
+  "depth_window_km": 20.0
+}

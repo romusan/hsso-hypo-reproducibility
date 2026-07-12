@@ -1,0 +1,13 @@
+,value
+nlloc_events,62.0
+hypodd_events,56.0
+unlinked_events,6.0
+clusters,8.0
+median_nlloc_rms_s,0.169618
+median_hypodd_pair_rms_s,0.0575
+median_horizontal_shift_km,0.10271525320127983
+max_horizontal_shift_km,0.6361567991605966
+median_abs_vertical_shift_km,0.0352110000000021
+max_abs_vertical_shift_km,1.2831879999999956
+small_cluster_events,4.0
+depth_boundary_events,0.0
